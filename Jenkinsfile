@@ -2,19 +2,13 @@ pipeline {
     agent any;
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
         stage('Test') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh """
+                npm i 
+                npx ava --tap | tee result.txt
+                cat result.txt | npx ts-node
+                """
             }
         }
     }
