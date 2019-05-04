@@ -6,9 +6,14 @@ pipeline {
             steps {
                 sh """
                 npm i 
-                npx ava --tap | tee result.txt
-                cat result.txt | npx ts-node tap.ts
+                npx ava --tap | tee result.tap
+                cat result.tap | npx ts-node tap.ts
                 """
+            }
+        }
+        stage('TAP publish') {
+            steps {
+                step([$class: "TapPublisher", testResults: "result.tap"])
             }
         }
     }
