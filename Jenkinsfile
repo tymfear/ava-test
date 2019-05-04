@@ -7,7 +7,7 @@ pipeline {
                 sh """
                 npm i 
                 npx ava --tap | tee result.txt
-                cat result.txt | npx ts-node
+                cat result.txt | npx ts-node tap.ts
                 """
             }
         }
