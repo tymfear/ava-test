@@ -1,0 +1,21 @@
+TAP version 13
+# test.ts › [12341234] Some test 1
+ok 1 - test.ts › [12341234] Some test 1
+# 1.ts › [21312] Another test 2
+not ok 2 - 1.ts › [21312] Another test 2
+  ---
+    name: AssertionError
+    assertion: is
+    values:
+      'Difference:': |-
+        - `89.27.77.208␊
+        - `
+        + `asd
+    at: 'ava_1.default (test/test-1.ts:22:5)'
+  ...
+
+1..2
+# tests 2
+# pass 1
+# fail 1
+
