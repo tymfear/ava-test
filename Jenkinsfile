@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'node:10.15.3-alpine' }
+        docker { 
+            image 'node:10.15.3-alpine' 
+            args '-u root'
+        }
     }
 
     stages {
